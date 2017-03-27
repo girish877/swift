@@ -3,12 +3,12 @@
 	folder -->
 <swift>
 	<serverProperties>
-		<sipServerAddress>slw1643:5080</sipServerAddress>
-		<sipServerIP>slw1643</sipServerIP>
+		<sipServerAddress>localhost:5080</sipServerAddress>
+		<sipServerIP>localhost</sipServerIP>
 		<webSocketPort>8443</webSocketPort>
 	</serverProperties>
-	<socketPath>wss://slw1643:8443/SwiftGateway/wssignaling</socketPath>
-	<certificatePath>conf/mycert.p12</certificatePath>
+	<socketPath>wss://localhost:8443/SwiftGateway/wssignaling</socketPath>
+	<certificatePath>opt/mycert.p12</certificatePath>
 	<certificatePassword>evry@1234</certificatePassword>
 	<userProperties>
 		<!-- Maximum registration time for the user. User has to send register 

@@ -80,7 +80,7 @@
                clientAuth="false" sslProtocol="TLS" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" />
     -->
 	
-	<Connector SSLEnabled="true" clientAuth="false" keystoreFile="conf/mycert.p12" keystorePass="evry@1234" keystoreType="PKCS12" maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" sslProtocol="TLS"/>
+	<Connector SSLEnabled="true" clientAuth="false" keystoreFile="opt/mycert.p12" keystorePass="evry@1234" keystoreType="PKCS12" maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" sslProtocol="TLS"/>
 	
 	
 	<!-- <Connector SSLEnabled="true" acceptCount="100" clientAuth="false" disableUploadTimeout="true" enableLookups="false" keystoreFile="D:\SM_W1\Certificates\device.crt"	keystorePass="evry@1234" maxThreads="25" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/> -->
@@ -102,19 +102,19 @@
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
 
     <!-- Define a SIP Connector on port 5080 -->
-    <Connector ipAddress="slw1643" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="udp"/>
+    <Connector ipAddress="localhost" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="udp"/>
 	
 	<!-- Define the default TCP SIP Connector -->
-    <Connector ipAddress="slw1643" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tcp"/>
+    <Connector ipAddress="localhost" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tcp"/>
     	 
     <!-- Define the default TLS SIP Connector -->
-    <Connector ipAddress="slw1643" port="5081" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tls"/>
+    <Connector ipAddress="localhost" port="5081" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tls"/>
 
     <!-- Define the default SIP Over WebSockets Connector -->
-    <Connector ipAddress="slw1643" port="5082" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="wss"/>
+    <Connector ipAddress="localhost" port="5082" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="wss"/>
     
     <!-- Define the default SIP Over WebSockets Connector -->
-    <Connector ipAddress="slw1643" port="5083" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="ws"/>
+    <Connector ipAddress="localhost" port="5083" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="ws"/>
 		
     <!-- Define the default SIP Over WebSockets Connector 
     <Connector ipAddress="10.10.220.192" port="6060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="wss"/>-->
@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="D:\Karthikeyan_R\mss-3.0.564-apache-tomcat-7.0.50\webapps\RealCommGlobal" path="/RealCommGlobal" reloadable="true" source="org.eclipse.jst.jee.server:RealCommGlobal"/></Host>
+      </Host>
     </Engine>
   </Service>
 </Server>
