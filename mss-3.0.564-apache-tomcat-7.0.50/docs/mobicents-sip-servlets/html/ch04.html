@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 4. SIP Servlet Example Applications</title><link rel="stylesheet" type="text/css" href="css/telestax_org.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"/><link rel="home" href="index.html" title="SIP Servlets Server User Guide"/><link rel="up" href="index.html" title="SIP Servlets Server User Guide"/><link rel="prev" href="ch03.html" title="Chapter 3. Application Router"/><link rel="next" href="ch05.html" title="Chapter 5. Clustering and High Availability"/><meta xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" http-equiv="Content-Type" content="text/html; charset=UTF-8"/></head><body><p xmlns:d="http://docbook.org/ns/docbook" id="title"><a href="http://www.telestax.com" class="site_href"><strong>TeleStax.org</strong></a><a href="http://www.telestax.com/" class="doc_href"><strong>Community Documentation</strong></a></p><ul xmlns:d="http://docbook.org/ns/docbook" class="docnav"><li class="previous"><a accesskey="p" href="ch03.html"><strong>Prev</strong></a></li><li class="next"><a accesskey="n" href="ch05.html"><strong>Next</strong></a></li></ul><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="ssea-SIP_Servlet_Example_Applications"/>Chapter 4. SIP Servlet Example Applications</h1></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch04.html#sfss-Services_for_SIP_Servlets">4.1. Operating the Example Applications</a></span></dt><dd><dl><dt><span class="section"><a href="ch04.html#sfss-The_Location_Service">4.1.1. The Location Service</a></span></dt><dt><span class="section"><a href="ch04.html#sfss-The_Diameter_Event-Changing_Service">4.1.2. The Diameter Event-Changing Service</a></span></dt><dt><span class="section"><a href="ch04.html#sfss-The_Call-Blocking_Service">4.1.3. The Call-Blocking Service</a></span></dt><dt><span class="section"><a href="ch04.html#sfss-The_Call-Forwarding_Service">4.1.4. The Call-Forwarding Service</a></span></dt><dt><span class="section"><a href="ch04.html#sfss-The_Call-Controller_Service">4.1.5. The Call-Controller Service</a></span></dt><dt><span class="section"><a href="ch04.html#mipbx-Media_IPBX">4.1.6. Media IPBX</a></span></dt><dt><span class="section"><a href="ch04.html#concept-chapter-SS_click2call">4.1.7. Tomcat Servlet Click2call Windows Setup</a></span></dt></dl></dd></dl></div><p>The SIP Servlet Server has a selection of examples that demonstrate particular capabilities of the server. <a class="xref" href="ch04.html#tab-ssea-SIP_Servlet_Example_Applications" title="Table 4.1. Available Examples">Table 4.1, “Available Examples”</a> lists the available examples, their location, and a brief description about the functionality each example demonstrates. The examples can also provide a useful starting point for developing SIP Applications, therefore it is encouraged to experiment and adapt the base examples. Each example is available in both binary and source formats.</p><div class="table"><a id="tab-ssea-SIP_Servlet_Example_Applications"/><p class="title"><strong>Table 4.1. Available Examples</strong></p><div class="table-contents"><table summary="Available Examples" border="1"><colgroup><col align="left" class="c1"/><col align="left" class="c2"/></colgroup><thead><tr><th align="center">Example</th><th align="center">Description</th></tr></thead><tbody><tr><td align="left">
+<a class="xref" href="ch04.html#sfss-The_Call-Blocking_Service" title="4.1.3. The Call-Blocking Service">Section 4.1.3, “The Call-Blocking Service”</a>
+</td><td align="left">Demonstrates how to block calls by specifying that the INVITE SIP Extension checks the <code class="literal">From</code> address to see if it is specified in the block list. If the blocked SIP address matches, the Call Blocking application send a FORBIDDEN response.</td></tr><tr><td align="left">
+<a class="xref" href="ch04.html#sfss-The_Call-Forwarding_Service" title="4.1.4. The Call-Forwarding Service">Section 4.1.4, “The Call-Forwarding Service”</a>
+</td><td align="left">Demonstrates how to forward calls by specifying that the INVITE SIP Extension checks the <code class="literal">To</code> address to see if it is specified in the forward list. If the SIP address matches, the application acts as a back-to-back user agent (B2BUA).</td></tr><tr><td align="left">
+<a class="xref" href="ch04.html#sfss-The_Call-Controller_Service" title="4.1.5. The Call-Controller Service">Section 4.1.5, “The Call-Controller Service”</a>
+</td><td align="left">Call Blocking and Call Forwarding are merged to create a new service.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/SpeedDial">Speed Dial</a>
+</td><td align="left">Demonstrates how to implement speed dialing for SIP addresses. The demonstration uses a static list of speed dial numbers. The numbers are translated into a complete address based on prior configuration. The SIP addresses are proxied without record-routing, or supervised mode.</td></tr><tr><td align="left">
+<a class="xref" href="ch04.html#sfss-The_Location_Service" title="4.1.1. The Location Service">Section 4.1.1, “The Location Service”</a>
+</td><td align="left">Demonstrates a location service that performs a lookup based on the request URI, into a hard-coded list of addresses. The request is proxied to the set of destination addresses associated with that URI.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/SpeedDialLocationService">Composed Speed Dial and Location</a>
+</td><td align="left">Speed Dial and Location are merged to create a new service. Speed Dial proxies the speed dial number to a SIP address, then Location Service proxies the call to the actual location of the call recipient.</td></tr><tr><td align="left">
+<a class="ulink" href="concept-chapter-SS_click2call">Click to Call</a>
+</td><td align="left">Demonstrates how SIP Servlets can be used along with HTTP servlets as a converged application to place calls from a web portal. The example is a modified version of the click to dial example from the Sailfin project, but has been reworked to comply with JSR 289.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/ChatServer">Chat Server</a>
+</td><td align="left">Demonstrates <code class="literal">MESSAGE</code> SIP Extension support. This example is based on the chatroom server demonstration from the BEA dev2dev project, and has been modified to meet JSR 289 requirements.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/MediaDemo">Media JSR 309 Example</a>
+</td><td align="left">Demonstrates how the Sip Servlets Application Developers can leverage the JSR-309 API, which provides to application developers multimedia capabilities with a generic media server (MS) abstraction interface. This example is only compatible with JBoss AS5. The solution is know to work with Twinkle and linphone SIP soft-phones.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/ShoppingDemo">Shopping</a>
+</td><td align="left">Demonstrates integration with Seam and Java Enterprise Edition (JEE), and JSR 309 Media integration with text to speech (TTS) and dual-tone multi-frequency (DTMF) tones. The demonstration builds on the Converged Demo example, and adds support for the SIP Servlets v1.1 specification.</td></tr><tr><td align="left">
+<a class="xref" href="ch04.html#sfss-The_Diameter_Event-Changing_Service" title="4.1.2. The Diameter Event-Changing Service">Section 4.1.2, “The Diameter Event-Changing Service”</a>
+</td><td align="left">Demonstrates how the Diameter Event Charging, and the Location service, can be used to perform fixed-rated charging of calls (event charging). When a call is initiated, a debit of ten euros is applied to the <code class="literal">A Party</code> account. If the call is rejected by the <code class="literal">B Party</code>, or <code class="literal">A Party</code> hangs up before <code class="literal">B Party</code> can answer the call, the ten euro charge is credited to the <code class="literal">A Party</code> account.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/DiameterSh">Diameter Sh OpenIMS Integration</a>
+</td><td align="left">Demonstrates the integration between Mobicents and OpenIMS, using the Diameter Sh interface to receive profile updates and SIP.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/DiameterRoRf">Diameter Ro/Rf IIntegration</a>
+</td><td align="left">A Diameter Ro/Rf service that performs online call charging.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/ConferenceDemo">Conference</a>
+</td><td align="left">Demonstrates the capabilities of the Media Server, such as endpoint composition and conferencing, as well as proving that SIP Servlets are capable of working seamlessly with any third-party web framework, without repackaging or modifying the deployment descriptors. The demonstration uses Google's GWT Ajax framework with server-push updates to provide a desktop-like user interface experience and JSR 309 for Media Control. </td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/AlertingApplication">Alerting Application</a>
+</td><td align="left">This application was developed so that the JBoss RHQ/Jopr Enterprise Management Solution would be able to notify system administrators when a monitoring alert is fired by Jopr/RHQ.</td></tr><tr><td align="left">
+<a class="ulink" href="https://code.google.com/p/sipservlets/wiki/PresenceClientExample">SIP Presence Client Application</a>
+</td><td align="left">A Call Blocking application interoperating with the PLATFORM_NAME; SIP Presence Service (Technology Preview) to fetch the blocked contacts through XCAP.</td></tr></tbody></table></div></div><br class="table-break"/><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="sfss-Services_for_SIP_Servlets"/>4.1. Operating the Example Applications</h2></div></div></div><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h2> Important Information  </h2><p>
+Before trying out the examples in this section, you must have installed, configured and have MSS for JBoss or MSS for Tomcat AS7 running on your system.
+</p><p>
+See the chapters below for detailed instructions.
+</p><p>
+ <a class="xref" href="ch02.html#getting-started-with-MSS-JBOSS-AS7" title="2.1. Getting Started with MSS for JBoss AS7">Section 2.1, “Getting Started with MSS for JBoss AS7 ”</a> 
+</p><p>
+<a class="xref" href="ch02.html#getting-started-with-MSS-Tomcat-AS7" title="2.2. Getting Started with MSS for Tomcat 7">Section 2.2, “Getting Started with MSS for Tomcat 7  ”</a> 
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sfss-The_Location_Service"/>4.1.1. The Location Service</h3></div></div></div><p>The Mobicents Location Service contains a list of mappings of
+request URIs to destination addresses. When the Location Service receives
+a request, it performs a lookup on that mapping and proxies the request
+simultaneously to the destination address (or addresses) associated with
+that URI.</p><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><a id="sfss-The_Location_Service_Mappings_Cannot_Currently_Be_Configured"/><h2>The Location Service Mappings Cannot Currently Be Configured</h2><p>The Location Service currently performs a lookup on a hard-coded
+list of addresses. This model is evolving toward the eventual use of a
+database.</p></div><p>Regardless of whether you are using the JBoss Application Server or
+the Tomcat Servlet Container as the Servlets Server, the application,
+container and Location Service perform the following steps:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>A user—let us call her Alice—makes a call to
+<code class="literal">sip:receiver@sip-servlets.com</code>. The
+<code class="literal">INVITE</code> is received by the servlet container, which
+then starts the Location Service.</p></li><li class="listitem"><p>The Location Service, using non-SIP means, determines that the
+callee (i.e. the receiver) is registered at two locations, identified
+by the two SIP URIs, <code class="literal">sip:receiver@127.0.0.1:5090</code>
+and <code class="literal">sip:receiver@127.0.0.1:6090</code>.</p></li><li class="listitem"><p>The Location Service proxies to those two destinations in
+parallel, without record-routing, and without making use of supervised
+mode.</p></li><li class="listitem"><p>One of the destinations returns a <code class="literal">200 OK</code>
+status code; the second proxy is then canceled.</p></li><li class="listitem"><p>The <code class="literal">200 OK</code> is forwarded to Alice, and call
+setup is completed as usual.</p></li></ul></div><p>Here is the current list of hard-coded contacts and their location
+URIs:</p><div class="itemizedlist"><p class="title"><strong>sip:receiver@sip-servlets.com</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="literal">sip:receiver@127.0.0.1:5090</code></p></li><li class="listitem"><p><code class="literal">sip:receiver@127.0.0.1:6090</code></p></li></ul></div><div class="section"><div class="titlepage"/><p><a id="sfss-binary-Location_Service-Downloading"/><strong>Downloading. </strong>The Location Service is comprised of two archive files, a Web
+Archive (WAR) and a Default Application Router (DAR) configuration
+file, which you need to add to your installed SIP Servlets Server. For
+more information about WAR files, refer to the <a class="ulink" href="http://www.jboss.org/file-access/default/members/jbossas/freezone/docs/Server_Configuration_Guide/beta422/html/index.html">JBoss Application Server Administration and Development Guide</a>. For
+more information about DAR files, refer to the <a class="ulink" href="http://jcp.org/en/jsr/detail?id=289">JSR 289 spec, Appendix C</a>.</p><p>Download the Location Service's WAR file from here: <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/location-service/3.0.564/location-service-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/location-service/3.0.564/location-service-3.0.564.war</a>.</p><p>Download the Location Service's DAR file from here: <a class="ulink" href="https://sipservlets.googlecode.com/git/sip-servlets-examples/location-service/locationservice-dar.properties">https://sipservlets.googlecode.com/git/sip-servlets-examples/location-service/locationservice-dar.properties</a>.</p><p><a id="sfss-binary-Location_Service-Installing"/><strong>Installing. </strong>Both the <code class="filename">location-service-3.0.564.war</code> WAR file
+and the <code class="filename">locationservice-dar.properties</code> DAR file
+that you downloaded should be placed into different directories in
+your SIP Servlet Server installation hierarchy. Which directory
+depends on whether you are using the Location Service with MSS for
+JBoss or with MSS for Tomcat:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss AS7</span></dt><dd><p>Place <code class="filename">location-service-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/deployments/</code>
+directory, and <code class="filename">locationservice-dar.properties</code>
+into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/configuration/dars/
+</code>
+directory.</p></dd><dt><span class="term">MSS for Tomcat AS7</span></dt><dd><p>Place <code class="filename">location-service-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/webapps/</code>
+directory, and <code class="filename">locationservice-dar.properties</code>
+into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/dars/</code>
+directory.</p></dd></dl></div><p><a id="sfss-binary-Location_Service-Configuring"/><strong>Configuration. </strong></p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><div class="example"><a id="sfss-Editing_SS_for_JBoss_server.xml_for_the_Location_Service"/><p class="title"><strong>Example 4.1. Editing MSS for JBoss's standalone-sip.xml for the Location Service</strong></p><div class="example-contents"/></div><br class="example-break"/><pre class="screen">
+In the $JBOSS_HOME/standalone/configuration/standalone-sip.xml file search for the line 
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+application-router="dars/mobicents-dar.properties" 
+
+and replace it with the line below
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0"
+ application-router="dars/locationservice-dar.properties" 
+</pre></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Open the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/server.xml</code>
+configuration file and find the <code class="literal">Service</code>
+element. Add an attribute to it called
+<strong class="userinput"><code>darConfigurationFileLocation</code></strong>, and set it to
+<strong class="userinput"><code>conf/dars/locationservice-dar.properties</code></strong>:</p><div class="example"><a id="sfss-Editing_MSS_for_Tomcats_server.xml_for_the_Location_Service"/><p class="title"><strong>Example 4.2. Editing MSS for Tomcat's server.xml for the Location Service</strong></p><div class="example-contents"><pre xmlns="" xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">&lt;Service
+name="Sip-Servlets"
+className="org.mobicents.servlet.sip.startup.SipStandardService"
+sipApplicationDispatcherClassName="org.mobicents.servlet.sip.core.SipApplicationDispatcherImpl"
+darConfigurationFileLocation="conf/dars/locationservice-dar.properties"
+sipStackPropertiesFile="conf/mss-sip-stack.properties"&gt;</pre></div></div><br class="example-break"/><p>Make sure that the configuration file only contains one
+<code class="literal">darConfigurationFileLocation</code> attribute: your
+new one.</p></dd></dl></div><p><a id="sfss-binary-Location_Service-Running"/><strong>Running. </strong>Once the WAR and DAR files have been placed in the right
+directories, and the JBoss Application Server or Tomcat Servlet
+Container knows where to find them (which you specified in the <code class="filename">standalone-sip.xml</code> and
+<code class="filename">server.xml</code> file), then you should go ahead and
+run the SIP Servlets Server.</p><p><a id="sfss-binary-Location_Service-Testing"/><strong>Testing. </strong>The following procedure shows how to test the Location
+Service.</p><div class="procedure"><a id="d0e2440"/><p class="title"><strong>Procedure 4.1. </strong></p><ol class="procedure" type="1"><li class="step"><p>Start two SIP soft-phones. The first phone should be set up as
+<strong class="userinput"><code>sip:receiver@sip-servlets.com</code></strong> at the IP address
+<strong class="userinput"><code>127.0.0.1</code></strong> on port
+<strong class="userinput"><code>5090</code></strong>. The second phone can be set up in any
+way you like. Note that the SIP phones do not have to be
+registered.</p></li><li class="step"><p>Using the second phone, make a call to
+<code class="literal">sip:receiver@sip-servlets.com</code>. If the Location
+Service has been set up correctly and is running, the first phone—as
+the receiver or callee—should now be ringing.</p></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sfss-The_Diameter_Event-Changing_Service"/>4.1.2. The Diameter Event-Changing Service</h3></div></div></div><p>The Diameter Event-Changing Service is based on the Location
+Service, which performs call-charging at a fixed rate. Upon the initiation
+of a call, a debit of €10.00 occurs. In the cases of a call being rejected
+or the caller disconnecting (hanging up) before an answer is received, the
+caller's account is refunded.</p><p>Note that an MSS for JBoss installation is required to run this
+example; it will not work with MSS for Tomcat.</p><p>Provided here is a step-by-step description of the procedure as
+performed by the application and container:</p><div class="procedure"><a id="sfss-Diameter_Event-Changing_Service_Step-By-Step"/><p class="title"><strong>Procedure 4.2. Diameter Event-Changing Service Step-By-Step</strong></p><ol class="procedure" type="1"><li class="step"><p>A user, Alice, makes a call to
+<code class="literal">sip:receiver@sip-servlets.com</code>. The
+<code class="literal">INVITE</code> is received by the servlet container, which
+sends a request to debit Alice's account to the Charging Server. The
+servlet container then invokes the location service.</p></li><li class="step"><p>The Location Service determines, without using the SIP protocol
+itself, where the callee—or receiver—is registered. The callee may be
+registered at two locations identified by two SIP URIs:
+<code class="literal">sip:receiver@127.0.0.1:5090</code> and
+<code class="literal">sip:receiver@127.0.0.1:6090</code>.</p></li><li class="step"><p>The Location Service proxies to those two destinations
+simultaneously, without record-routing and without using the supervised
+mode.</p></li><li class="step"><p>One of the destinations returns <code class="literal">200 (OK)</code>, and
+so the container cancels the other.</p></li><li class="step"><p>The <code class="literal">200 (OK)</code> is forwarded upstream to Alice,
+and the call setup is carried out as usual.</p></li><li class="step"><p>If none of the registered destinations accepts the
+call, a Diameter Accounting-Request for refund is sent to the Diameter
+Charging Server in order to debit the already-credited €10.00</p></li></ol></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="sfss-binary-Diameter_Event-Changing_Service--Installing_Configuring_and_Running"/>4.1.2.1. Diameter Event-Changing Service: Installing, Configuring and Running</h4></div></div></div><p>Preparing your MSS for JBoss server to run the Diameter
+Event-Changing example requires downloading a WAR archive, a DAR
+archive, the Ericsson Charging Emulator, setting an attribute in JBoss's
+<code class="filename">standalone-sip.xml</code> configuration file, and then running
+JBoss AS. Detailed instructions in the section below.</p><p><a id="sfss-binary-Diameter_Event-Changing_Service-Pre-Install_Requirements_and_Prerequisites"/><strong>Pre-Install Requirements and Prerequisites. </strong>The following requirements must be met before installation can begin.</p><div class="variablelist"><a id="sfss-binary-Diameter_Event-Changing_Service-Software_Prerequisites"/><p class="title"><strong>Software Prerequisites</strong></p><dl class="variablelist"><dt><span class="term">One MSS for JBoss Installation</span></dt><dd><p>Before proceeding, you should follow the instructions for
+installing, configuring, running and testing MSS for JBoss from
+the binary distribution.</p></dd></dl></div><p><a id="sfss-binary-Diameter_Event-Changing_Service-Downloading"/><strong>Downloading. </strong>The following procedure describes how to download the required files.</p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>First, download the latest Web Application Archive
+(<acronym class="acronym">WAR</acronym>) file corresponding to this example, the
+current version of which is named
+<code class="filename">diameter-event-charging-*.war</code>, from <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/diameter-event-charging/3.0.564/diameter-event-charging-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/diameter-event-charging/3.0.564/diameter-event-charging-3.0.564.war</a>.</p></li><li class="step"><p>Secondly, download the corresponding Disk Archive
+(<acronym class="acronym">DAR</acronym>) configuration file here:
+<a class="ulink" href="https://sipservlets.googlecode.com/git/sip-servlets-examples/diameter-event-charging/diametereventcharging-dar.properties">https://sipservlets.googlecode.com/git/sip-servlets-examples/diameter-event-charging/diametereventcharging-dar.properties</a>.</p></li><li class="step"><p>Finally, you will need to download the Ericsson Charging
+Emulator, version 1.0, from <a class="ulink" href="http://mobicents.googlecode.com/files/ChargingSDK-1_0_D31E.zip">http://mobicents.googlecode.com/files/ChargingSDK-1_0_D31E.zip</a>.</p></li></ol></div><p><a id="sfss-binary-Diameter_Event-Changing_Service-Installing"/><strong>Installing. </strong>The following procedure describes how to install the downloaded files.</p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>Place the <code class="filename">diameter-event-charging-3.0.564.war</code>
+WAR archive into the
+<code class="filename">$JBOSS_HOME/standalone/deployments/</code>
+directory.</p></li><li class="step"><p>Place the
+<code class="filename">diametereventcharging-dar.properties</code> DAR file
+in your
+$JBOSS_HOME/standalone/configuration/dars/ 
+directory.</p></li><li class="step"><p>Finally, open the terminal, move into the directory to which
+you downloaded the Ericsson Charging SDK (for the sake of this
+example, we will call this directory
+<code class="filename">charging_sdk</code>), and then unzip the downloaded
+zip file (you can use Java's <span class="command"><strong>jar <code class="option">-xvf</code></strong></span> command for this:</p><pre class="screen">~]$ cd charging_sdk
+charging_sdk]$ jar -xvf ChargingSDK-1_0_D31E.zip</pre><p>Alternatively, you can use Linux's <span class="command"><strong>unzip</strong></span>
+command to do the dirty work:</p><pre class="screen">charging_sdk]$ unzip ChargingSDK-1_0_D31E.zip</pre></li></ol></div><p><a id="sfss-binary-Diameter_Event-Changing_Service-Configuring"/><strong>Configuration. </strong></p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><div class="example"><a id="sfss-Editing_the_darConfigurationFileLocation_Attribute_of_the_Service_Tag"/><p class="title"><strong>Example 4.3. Editing the standalone-sip.xml for the Diameter Event-Changer Service</strong></p><div class="example-contents"/></div><br class="example-break"/><pre class="screen">
+In the $JBOSS_HOME/standalone/configuration/standalone-sip.xml
+make sure the application router is pointing the mobicents-dar.properties file as follows. 
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+application-router="dars/mobicents-dar.properties" 
+
+ 
+</pre></dd></dl></div><p><a id="sfss-binary-Diameter_Event-Changing_Service-Running"/><strong>Running. </strong>The following procedure describes how to run the Diameter Event-Changing Service.</p><div class="procedure"><a id="sfss-Diameter_Event-Changing_Service"/><p class="title"><strong>Procedure 4.3. Diameter Event-Changing Service</strong></p><ul class="procedure"><li class="step"><p>Then, run the Ericsson Charging Emulator. Open a terminal,
+change the working directory to the location of the unzipped
+Charging Emulator files (in
+<code class="filename">ChargingSDK-1_0_D31E</code> or a similarly-named
+directory), and run it with the <span class="command"><strong>java -jar <code class="filename">PPSDiamEmul.jar</code></strong></span> command:</p><pre class="screen">~]$ java -jar PPSDiamEmul.jar</pre></li></ul></div><p><a id="sfss-binary-Diameter_Event-Changing_Service-Using"/><strong>Using. </strong>Using the Event-Changing service means, firstly, inserting some
+parameters into the Charging Emulator, and then, by using two SIP
+(soft)phones, calling one with the other. The following sequential
+instructions show you how.</p><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><a id="sfss-SIP_SoftPhone_Which"/><h2>SIP (Soft)Phone? Which?</h2><p>The Mobicents team recommends one of the following SIP phones,
+and has found that they work well: the 3CX Phone, the SJ Phone or the
+WengoPhone.</p></div><div class="procedure"><a id="sfss-Using_the_Diameter_Event-Changing_Service"/><p class="title"><strong>Procedure 4.4. Using the Diameter Event-Changing Service</strong></p><ol class="procedure" type="1"><li class="step"><p class="title"><strong>Configure the Ericsson SDK Charging Emulator</strong></p><p>Once you have started the Charging Emulator, you should
+configure it exactly as portrayed in <a class="xref" href="ch04.html#figure-mss-ChargingEmulatorConfig" title="Figure 4.1. Configuring the Charging Emulator">Figure 4.1, “Configuring the Charging Emulator”</a>.</p><div class="figure"><a id="figure-mss-ChargingEmulatorConfig"/><p class="title"><strong>Figure 4.1. Configuring the Charging Emulator</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="sfss-mss-DiameterEventChanging-ss-ChargingEmulatorConfig"/><img src="images/mss-DiameterEventChanging-ss-ChargingEmulatorConfig.png" align="middle" alt="Configuring the Charging Emulator"/></div></div></div><br class="figure-break"/><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Set the <code class="literal">Peer ID</code> to:
+<strong class="userinput"><code>aaa://127.0.0.1:21812</code></strong></p></li><li class="listitem"><p>Set the <code class="literal">Realm</code> to:
+<strong class="userinput"><code>mobicents.org</code></strong></p></li><li class="listitem"><p>Set the <code class="literal">Host IP</code> to:
+<strong class="userinput"><code>127.0.0.1</code></strong></p></li></ol></div></li><li class="step"><p>Start two SIP (soft)phones. You should set the first phone up
+with the following parameters:
+<strong class="userinput"><code>sip:receiver@sip-servlets</code></strong> on IP address
+<strong class="userinput"><code>127.0.0.1</code></strong> on port
+<strong class="userinput"><code>5090</code></strong>. The other phone can be set up any way
+you like.</p></li><li class="step"><p>Before making a call, open the <span class="guimenu">Config</span> → <span class="guimenuitem">Options</span> dialog window, as shown in the image.</p><div class="figure"><a id="d0e2720"/><p class="title"><strong>Figure 4.2. Configuring Accounts in the Charging Emulator</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="sfss-mss-DiameterEventChanging-ss-ChargingAccountConfig"/><img src="images/mss-DiameterEventChanging-ss-ChargingAccountConfig.png" align="middle" alt="Configuring Accounts in the Charging Emulator"/></div></div></div><br class="figure-break"/><p>In the <span class="guilabel">Account Configuration</span> window of
+the Charging Emulator, you can see the user's balances. Select a
+user to watch the balance. You can also stretch the window
+lengthwise to view the user's transaction history.</p></li><li class="step"><p>Time to call! From the second,
+<span class="quote">“<span class="quote">any-configuration</span>”</span> phone, make a call to
+<code class="literal">sip:receiver@sip-servlets.com</code>. Upon doing so, the
+other phone should ring or signal that it is being contacted
+.</p></li><li class="step"><p>You should be able to see a request—immediately following the
+invite and before the other party (i.e. you) accepts or rejects the
+call—sent to the Charging Emulator. That is when the debit of the
+user's account is made. In the case that the call is rejected, or
+the caller gives up, a second, new Diameter request is sent to
+refund the initial amount charged by the call. On the other hand, if
+the call is accepted, nothing else related to Diameter happens, and
+no second request takes place.</p><p>Please note that this is not the correct way to do
+charging, as Diameter provides other means, such as unit
+reservation. However, for the purpose of a demonstration it is
+sufficient to show the debit and follow-up credit working. Also,
+this is a fixed-price call, regardless of the duration. Charging
+can, of course, be configured so that it is time-based.</p></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sfss-The_Call-Blocking_Service"/>4.1.3. The Call-Blocking Service</h3></div></div></div><p>The Mobicents Call-Blocking Service, upon receiving an
+<code class="literal">INVITE</code> request, checks to see whether the sender's
+address is a blocked contact. If so, it returns a
+<code class="literal">FORBIDDEN</code> reply; otherwise, call setup proceeds as
+normal.</p><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><a id="sfss-Blocked_Contacts_Cannot_Currently_Be_Configured"/><h2>Blocked Contacts Cannot Currently Be Configured</h2><p>Blocked contacts are currently hard-coded addresses. This model is
+evolving towards the eventual use of a database.</p></div><p>Here is the current hard-coded list of blocked contacts:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="literal">sip:blocked-sender@sip-servlets.com</code></p></li><li class="listitem"><p><code class="literal">sip:blocked-sender@127.0.0.1</code></p></li></ul></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="sfss-binary-Call-Blocking_Service--Installing_Configuring_and_Running"/>4.1.3.1. The Call-Blocking Service: Installing, Configuring and Running</h4></div></div></div><p> </p><div class="variablelist"><a id="sfss-binary-Call-Blocking_Service-Software_Prerequisites"/><p class="title"><strong>Software Prerequisites</strong></p><dl class="variablelist"><dt><span class="term">Either an MSS for JBoss or an MSS for Tomcat Installation</span></dt><dd><p>The Call-Blocking Service requires either an MSS for JBoss
+or an MSS for Tomcat binary installation.</p><p>You can find detailed instructions on installing MSS for
+JBoss here: <a class="xref" href="ch02.html#getting-started-with-MSS-JBOSS-AS7" title="2.1. Getting Started with MSS for JBoss AS7">Section 2.1, “Getting Started with MSS for JBoss AS7 ”</a>.
+</p><p>You can find detailed instructions on installing MSS for
+Tomcat here: <a class="xref" href="ch02.html#bssswticar-SIP_Servlets_Server_with_Tomcat-Installing_Configuring_and_Running" title="2.2.2. Tomcat for Windows">Section 2.2.2, “Tomcat for Windows ”</a>.
+</p></dd></dl></div><p><a id="sfss-binary-Call-Blocking_Service-Downloading"/><strong>Downloading. </strong>The Call-Blocking Service is comprised of two archive files, a
+Web Archive (WAR) and a Default Application Router (DAR) configuration
+file, which you need to add to your installed SIP Servlets Server. For
+more information about WAR files, refer to the <a class="ulink" href="http://www.jboss.org/file-access/default/members/jbossas/freezone/docs/Server_Configuration_Guide/beta422/html/index.html">JBoss Application Server Administration and Development Guide</a>. For
+more information about DAR files, refer to the <a class="ulink" href="http://jcp.org/en/jsr/detail?id=289">JSR 289 spec, Appendix C</a>.</p><p>Download the Call-Blocking Service's WAR file from here: <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-blocking/3.0.564/call-blocking-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-blocking/3.0.564/call-blocking-3.0.564.war</a>.</p><p>Download the Call-Blocking Service's DAR file from here: <a class="ulink" href="https://sipservlets.googlecode.com/git/sip-servlets-examples/call-blocking/call-blocking-servlet-dar.properties">https://sipservlets.googlecode.com/git/sip-servlets-examples/call-blocking/call-blocking-servlet-dar.properties</a>.</p><p><a id="sfss-binary-Call-Blocking_Service-Installing"/><strong>Installing. </strong>Both the <code class="filename">call-blocking-3.0.564.war</code> WAR file and
+the <code class="filename">call-blocking-servlet-dar.properties</code> DAR file
+that you downloaded should be placed into different directories in
+your SIP Servlet Server installation hierarchy. Which directory depends
+on whether you are using the Call-Blocking Service with MSS for JBoss
+or with MSS for Tomcat:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><p>Place <code class="filename">call-blocking-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/deployments/</code>
+directory, and
+<code class="filename">call-blocking-servlet-dar.properties</code> into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/configuration/dars/</code>
+directory.</p></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Place
+<code class="filename">call-blocking-servlet-dar.properties</code> into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/webapps/</code>
+directory, and
+<code class="filename">call-blocking-servlet-dar.properties</code> into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/dars/</code>
+directory.</p></dd></dl></div><p><a id="sfss-binary-Call-Blocking_Service-Configuring"/><strong>Configuring. </strong></p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><div class="example"><a id="sfss-Editing_the_callBlockingService_Attribute_of_the_Service_Tag"/><p class="title"><strong>Example 4.4. Editing the standalone-sip.xml file for Call Blocking</strong></p><div class="example-contents"/></div><br class="example-break"/><pre class="screen">
+In the $JBOSS_HOME/standalone/configuration/standalone-sip.xml search for the line below
+ 
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/mobicents-dar.properties"  
+
+change it to the following
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/call-blocking-servlet-dar.properties" 
+
+ </pre></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Open the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/server.xml</code>
+configuration file and find the <code class="literal">Service</code>
+element. Add an attribute to it called
+<strong class="userinput"><code>darConfigurationFileLocation</code></strong>, and set it to
+<strong class="userinput"><code>conf/dars/call-blocking-servlet-dar.properties</code></strong>:</p><div class="example"><a id="sfss-Editing_MSS_for_Tomcats_server.xml_for_the_Call-Blocking_Service"/><p class="title"><strong>Example 4.5. Editing MSS for Tomcat's server.xml for the Call-Blocking Service</strong></p><div class="example-contents"><pre xmlns="" xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">&lt;Service
+name="Sip-Servlets"
+className="org.mobicents.servlet.sip.startup.SipStandardService"
+sipApplicationDispatcherClassName="org.mobicents.servlet.sip.core.SipApplicationDispatcherImpl"
+darConfigurationFileLocation="conf/dars/call-blocking-servlet-dar.properties"
+sipStackPropertiesFile="conf/mss-sip-stack.properties"&gt;</pre></div></div><br class="example-break"/><p>Make sure that the configuration file only contains one
+<code class="literal">darConfigurationFileLocation</code> attribute: your
+new one.</p></dd></dl></div><p><a id="sfss-binary-Call-Blocking_Service-Running"/><strong>Running. </strong>Once the WAR and DAR files have been placed in the right
+directories, and the JBoss Application Server or Tomcat Servlet
+Container knows where to find them (which you specified in a
+<code class="filename">server.xml</code> and the <code class="filename">standalone-sip.xml</code>  files), then you should go ahead and
+run the SIP Servlets Server.</p><p><a id="sfss-binary-Call-Blocking_Service-Testing"/><strong>Testing. </strong>The following procedure shows how to test the Call-Blocking
+Service.</p><div class="procedure"><a id="d0e2937"/><p class="title"><strong>Procedure 4.5. Testing the Call Blocking Service</strong></p><ol class="procedure" type="1"><li class="step"><p>Start a SIP softphone of your choice. The account name should
+be <strong class="userinput"><code>blocked-sender</code></strong>. The <code class="literal">From Header</code> should list one of the following addresses:
+<strong class="userinput"><code>sip:blocked-sender@sip-servlets.com</code></strong> or
+<strong class="userinput"><code>sip:blocked-sender@127.0.0.1</code></strong>. The SIP
+softphone does not need to be registered.</p></li><li class="step"><p>Make a call to any address, and you should receive a
+<code class="literal">FORBIDDEN</code> response.</p></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sfss-The_Call-Forwarding_Service"/>4.1.4. The Call-Forwarding Service</h3></div></div></div><p>The Mobicents Call-Forwarding Service, upon receiving an
+<code class="literal">INVITE</code> request, checks to see whether the sender's
+address is among those in a list of addresses which need to be forwarded.
+If so, then the Call-Forwarding Service acts as a Back-to-Back User Agent
+(B2BUA), and creates a new call leg to the destination. When the response
+is received from the new call leg, it sends it an acknowledgment
+(<code class="literal">ACK</code>) and then responds to the original caller. If, on
+the other hand, the server does not receive an <code class="literal">ACK</code>,
+then it tears down the new call leg with a <code class="literal">BYE</code>. Once
+the <code class="literal">BYE</code> is received, then it answers
+<code class="literal">OK</code> directly and sends the <code class="literal">BYE</code> to
+the new call leg.</p><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><a id="sfss-Contacts_to_Forward_Cannot_Currently_Be_Configured"/><h2>Contacts to Forward Cannot Currently Be Configured</h2><p>Contacts to forward are currently hard-coded addresses. This model
+is evolving toward the eventual use of a database.</p></div><p>Here is the current hard-coded list of contacts to forward:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><code class="literal">sip:receiver@sip-servlets.com</code></p></li><li class="listitem"><p><code class="literal">sip:receiver@127.0.0.1</code></p></li></ul></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="sfss-binary-Call-Forwarding_Service--Installing_Configuring_and_Running"/>4.1.4.1. The Call-Forwarding Service: Installing, Configuring and Running</h4></div></div></div><p> </p><p><a id="sfss-binary-Call-Forwarding_Service-Pre-Install_Requirements_and_Prerequisites"/><strong>Pre-Install Requirements and Prerequisites. </strong>The following requirements must be met before installation can begin.</p><p><a id="sfss-binary-Call-Forwarding_Service-Downloading"/><strong>Downloading. </strong>The Call-Forwarding Service is comprised of two archive files, a
+Web Archive (WAR) and a Data Archive (DAR), which you need to add to
+your installed SIP Servlets Server. For more information about WAR and
+DAR files, refer to the <a class="ulink" href="http://www.jboss.org/file-access/default/members/jbossas/freezone/docs/Server_Configuration_Guide/beta422/html/index.html">JBoss Application Server Administration and Development Guide</a>.</p><p>Download the Call-Forwarding Service's WAR file from here: <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-forwarding/3.0.564/call-forwarding-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-forwarding/3.0.564/call-forwarding-3.0.564.war</a>.</p><p>Download the Call-Forwarding Service's DAR file from here: <a class="ulink" href="https://sipservlets.googlecode.com/git/sip-servlets-examples/call-forwarding/call-forwarding-b2bua-servlet-dar.properties">https://sipservlets.googlecode.com/git/sip-servlets-examples/call-forwarding/call-forwarding-b2bua-servlet-dar.properties</a>.</p><p><a id="sfss-binary-Call-Forwarding_Service-Installing"/><strong>Installing. </strong>Both the <code class="filename">call-forwarding-3.0.564.war</code> WAR file
+and the <code class="filename">call-forwarding-servlet-dar.properties</code>
+DAR file that you downloaded should be placed into different
+directories in your SIP Servlet Server installation hierarchy. Which
+directory depends on whether you are using the Call-Forwarding Service
+with MSS for JBoss or with MSS for Tomcat:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><p>Place <code class="filename">call-forwarding-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/deployments/</code>
+directory, and
+<code class="filename">call-forwarding-servlet-dar.properties</code> into
+the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/configuration/dars/</code>
+directory.</p></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Place <code class="filename">call-forwarding-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/webapps/</code>
+directory, and
+<code class="filename">call-forwarding-servlet-dar.properties</code> into
+the <code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/dars/</code>
+directory.</p></dd></dl></div><p><a id="sfss-binary-Call-Forwarding_Service-Configuring"/><strong>Configuring. </strong></p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><div class="example"><a id="sfss-Editing_SS_for_JBoss_server.xml_for_the_Call-Forwarding_Service"/><p class="title"><strong>Example 4.6. Editing MSS for JBoss's standalone-sip.xml for the Call-Forwarding Service</strong></p><div class="example-contents"/></div><br class="example-break"/><pre class="screen">
+In the $JBOSS_HOME/standalone/configuration/standalone-sip.xml search for the line below
+ 
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/mobicents-dar.properties"  
+
+change it to the following
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/call-forwarding-b2bua-servlet-dar.properties" 
+
+ 
+</pre></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Open the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/server.xml</code>
+configuration file and find the <code class="literal">Service</code>
+element. Add an attribute to it called
+<strong class="userinput"><code>darConfigurationFileLocation</code></strong>, and set it to
+<strong class="userinput"><code>conf/dars/call-forwarding-b2bua-servlet-dar.properties</code></strong>:</p><div class="example"><a id="sfss-Editing_MSS_for_Tomcats_server.xml_for_the_Call-Forwarding_Service"/><p class="title"><strong>Example 4.7. Editing MSS for Tomcat's server.xml for the Call-Forwarding Service</strong></p><div class="example-contents"><pre xmlns="" xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">&lt;Service
+name="Sip-Servlets"
+className="org.mobicents.servlet.sip.startup.SipStandardService"
+sipApplicationDispatcherClassName="org.mobicents.servlet.sip.core.SipApplicationDispatcherImpl"
+darConfigurationFileLocation="conf/dars/call-forwarding-b2bua-servlet-dar.properties"
+sipStackPropertiesFile="conf/mss-sip-stack.properties"&gt;</pre></div></div><br class="example-break"/><p>Make sure that the configuration file only contains one
+<code class="literal">darConfigurationFileLocation</code> attribute: your
+new one.</p></dd></dl></div><p><a id="sfss-binary-Call-Forwarding_Service-Running"/><strong>Running. </strong>Once the WAR and DAR files have been placed in the right
+directories, and the JBoss Application Server or Tomcat Servlet
+Container knows where to find them (which you specified in a
+<code class="filename">standalone-sip.xml</code> and <code class="filename">server.xml</code>  files), then you should go ahead and
+run the SIP Servlets Server.</p><p><a id="sfss-binary-Call-Forwarding_Service-Testing"/><strong>Testing. </strong>The following procedure shows how to test the Call-Forwarding
+Service.</p><div class="procedure"><a id="d0e3152"/><p class="title"><strong>Procedure 4.6. </strong></p><ol class="procedure" type="1"><li class="step"><p>Start two SIP soft-phones of your choice. Set the account
+settings of the first SIP softphone to:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Account name:
+<strong class="userinput"><code>forward-receiver</code></strong></p></li><li class="listitem"><p>IP address: <strong class="userinput"><code>127.0.0.1</code></strong></p></li><li class="listitem"><p>Port: <strong class="userinput"><code>5090</code></strong></p></li></ul></div><p>Neither of the SIP soft-phones needs to be registered.</p></li><li class="step"><p>From the second phone, make a call to
+<code class="literal">sip:receiver@sip-servlets.com</code>. The first phone,
+"forward-receiver", should now be ringing.</p></li></ol></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sfss-The_Call-Controller_Service"/>4.1.5. The Call-Controller Service</h3></div></div></div><p>The Call-Controller service is a composition of two other services:
+Call-Blocking and Call-Forwarding. Essentially, it performs the services
+of both call-forwarding and call-blocking.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>To learn about how the Call-Blocking service works, refer to
+<a class="xref" href="ch04.html#sfss-The_Call-Blocking_Service" title="4.1.3. The Call-Blocking Service">Section 4.1.3, “The Call-Blocking Service”</a>.</p></li><li class="listitem"><p>To learn about how the Call-Forwarding service works, refer to
+<a class="xref" href="ch04.html#sfss-The_Call-Forwarding_Service" title="4.1.4. The Call-Forwarding Service">Section 4.1.4, “The Call-Forwarding Service”</a>.</p></li></ul></div><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><a id="sfss-Blocked_Contacts_and_Contacts_to_Forward_Cannot_Currently_Be_Configured"/><h2>Blocked Contacts and Contacts to Forward Cannot Currently Be Configured</h2><p>Both the list of blocked contacts and the list of contacts to
+forward are currently both hard-coded. However, both of those models are
+evolving toward the eventual use of databases.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="sfss-binary-Call-Controller_Service--Installing_Configuring_and_Running"/>4.1.5.1. The Call-Controller Service: Installing, Configuring and Running</h4></div></div></div><p>The Call-Controller service requires the two WAR files for the
+Call-Blocking and Call-Forwarding services to be placed in the correct
+directory inside your Mobicents SIP Servlets Server binary installation.
+However, the Call-Controller service does <span class="emphasis"><em>not</em></span>
+require their corresponding DAR files: you need only to download and
+install a DAR file customized for the Call-Controller service. The
+instructions below show you how to do precisely this; there is no need,
+therefore, to first install either the Call-Blocking or the
+Call-Forwarding services, though it is helpful to at least be familiar
+with them.</p><p><a id="sfss-binary-Call-Controller_Service-Pre-Install_Requirements_and_Prerequisites"/><strong>Pre-Install Requirements and Prerequisites. </strong>The following requirements must be met before installation can begin.</p><p><a id="sfss-binary-Call-Controller_Service-Downloading"/><strong>Downloading. </strong>The Call-Controller Service is comprised of two WAR files, one
+for the Call-Forwarding service and one for Call-Blocking, and a
+customized Call-Controller DAR file. You do not need to install the
+DAR files for the Call-Forwarding or the Call-Blocking services. For
+more information about WAR files, refer to the <a class="ulink" href="http://www.jboss.org/file-access/default/members/jbossas/freezone/docs/Server_Configuration_Guide/beta422/html/index.html">JBoss Application Server Administration and Development Guide</a>. For
+more information about DAR files, refer to the <a class="ulink" href="http://jcp.org/en/jsr/detail?id=289">JSR 289 spec, Appendix C</a></p><p>Download the Call-Blocking Service's WAR file from here: <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-blocking/3.0.564/call-blocking-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-blocking/3.0.564/call-blocking-3.0.564.war</a>.</p><p>Download the Call-Forwarding Service's WAR file from here: <a class="ulink" href="https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-forwarding/3.0.564/call-forwarding-3.0.564.war">https://oss.sonatype.org/content/groups/public/org/mobicents/servlet/sip/examples/call-forwarding/3.0.564/call-forwarding-3.0.564.war</a>.</p><p>Download the Call-Controller Service's DAR file from here: <a class="ulink" href="https://sipservlets.googlecode.com/git/sip-servlets-examples/call-blocking/call-controller-servlet-dar.properties">https://sipservlets.googlecode.com/git/sip-servlets-examples/call-blocking/call-controller-servlet-dar.properties</a>.</p><p><a id="sfss-binary-Call-Controller_Service-Installing"/><strong>Installing. </strong>The <code class="filename">call-blocking-3.0.564.war</code>,
+<code class="filename">call-forwarding-3.0.564.war</code> and
+<code class="filename">call-controller-servlet-dar.properties</code> archive
+files that you downloaded should be placed into different directories
+in your SIP Servlet Server installation hierarchy. Which directory
+depends on whether you are using the Call-Controller Service with MSS
+for JBoss or with MSS for Tomcat:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><p>Place <code class="filename">call-blocking-3.0.564.war</code> and
+<code class="filename">call-forwarding-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/deployments/</code>
+directory, and
+<code class="filename">call-controller-servlet-dar.properties</code> into
+the
+<code class="filename"><code class="envar">$JBOSS_HOME</code>/standalone/configuration/dars/</code>
+directory.</p></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Place <code class="filename">call-blocking-3.0.564.war</code> and
+<code class="filename">call-forwarding-3.0.564.war</code> into the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/webapps/</code>
+directory, and
+<code class="filename">call-controller-servlet-dar.properties</code> into
+the <code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/dars/</code>
+directory.</p></dd></dl></div><p><a id="sfss-binary-Call-Controller_Service-Configuring"/><strong>Configuring. </strong></p><div class="variablelist"><dl class="variablelist"><dt><span class="term">MSS for JBoss</span></dt><dd><div class="example"><a id="d0e3316"/><p class="title"><strong>Example 4.8. Editing MSS for JBoss's standalone-sip.xml for the Call-Controller Service</strong></p><div class="example-contents"><pre class="screen">
+In the $JBOSS_HOME/standalone/configuration/standalone-sip.xml search for the line below
+ 
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/mobicents-dar.properties"  
+
+change it to the following
+
+ &lt;subsystem xmlns="urn:org.mobicents:sip-servlets-as7:1.0" 
+ application-router="dars/call-controller-servlet-dar.properties" 
+
+ 
+</pre></div></div><br class="example-break"/><p>Make sure that the configuration file only contains one
+<code class="literal">darConfigurationFileLocation</code> attribute: your
+new one.</p></dd><dt><span class="term">MSS for Tomcat</span></dt><dd><p>Open the
+<code class="filename"><code class="envar">$CATALINA_HOME</code>/conf/server.xml</code>
+configuration file and find the <code class="literal">Service</code>
+element. Add an attribute to it called
+<strong class="userinput"><code>darConfigurationFileLocation</code></strong>, and set it to
+<strong class="userinput"><code>conf/dars/call-controller-servlet-dar.properties </code></strong>:</p><div class="example"><a id="sfss-Editing_MSS_for_Tomcats_server.xml_for_the_Call-Controller_Service"/><p class="title"><strong>Example 4.9. Editing MSS for Tomcat's server.xml for the Call-Controller Service</strong></p><div class="example-contents"><pre xmlns="" xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">&lt;Service
+name="Sip-Servlets"
+className="org.mobicents.servlet.sip.startup.SipStandardService"
+sipApplicationDispatcherClassName="org.mobicents.servlet.sip.core.SipApplicationDispatcherImpl"
+darConfigurationFileLocation="conf/dars/call-controller-servlet-dar.properties "
+sipStackPropertiesFile="conf/mss-sip-stack.properties"&gt;</pre></div></div><br class="example-break"/><p>Make sure that the configuration file only contains one
+<code class="literal">darConfigurationFileLocation</code> attribute: your
+new one.</p></dd></dl></div><p><a id="sfss-binary-Call-Controller_Service-Running"/><strong>Running. </strong>Once the WAR and DAR files have been placed in the right
+directories, and the JBoss Application Server or Tomcat Servlet
+Container knows where to find them (which you specified in a
+<code class="filename">server.xml</code> file), then you should go ahead and
+run the SIP Servlets Server.</p><p><a id="sfss-binary-Call-Controller_Service-Testing"/><strong>Testing. </strong>Two use-cases can be distinguished for the Call-Controller
+service: one in which a call is blocked, and another in which a call
+is forwarded. Therefore, we have two cases for which we can test the
+Call-Controller.</p><div class="procedure"><a id="sfss-Blocking_a_Call_with_the_Call-Controller"/><p class="title"><strong>Procedure 4.7. Blocking a Call with Call-Controller</strong></p><ol class="procedure" type="1"><li class="step"><p>Start two SIP soft-phones of your choice. Set the account
+settings of the SIP soft-phones to:</p><div class="itemizedlist"><p class="title"><strong>Relevant First Softphone Settings</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p>Account name:
+<strong class="userinput"><code>forward-receiver</code></strong></p></li><li class="listitem"><p>IP address: <strong class="userinput"><code>127.0.0.1</code></strong></p></li><li class="listitem"><p>Port: <strong class="userinput"><code>5090</code></strong></p></li></ul></div><div class="itemizedlist"><p class="title"><strong>Relevant Second Softphone Settings</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p>Account name: <strong class="userinput"><code>blocked-sender</code></strong></p></li></ul></div><p>Neither of the SIP soft-phones needs to be registered.</p></li><li class="step"><p>From the second phone, <code class="literal">blocked-sender</code>, make
+a call to <code class="literal">sip:receiver@sip-servlets.com</code>. You
+should receive a <code class="literal">FORBIDDEN</code> response.</p></li></ol></div><div class="procedure"><a id="sfss-Forwarding_a_Call_with_the_Call-Controller"/><p class="title"><strong>Procedure 4.8. Forwarding a Call with Call-Controller</strong></p><ol class="procedure" type="1"><li class="step"><p>Start two SIP soft-phones of your choice. Set the account
+settings of the SIP soft-phones to:</p><div class="itemizedlist"><p class="title"><strong>Relevant First Softphone Settings</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p>Account name:
+<strong class="userinput"><code>forward-receiver</code></strong></p></li><li class="listitem"><p>IP address: <strong class="userinput"><code>127.0.0.1</code></strong></p></li><li class="listitem"><p>Port: <strong class="userinput"><code>5090</code></strong></p></li></ul></div><div class="itemizedlist"><p class="title"><strong>Relevant Second Softphone Settings</strong></p><ul class="itemizedlist" type="disc"><li class="listitem"><p>Account name: <strong class="userinput"><code>forward-sender</code></strong></p></li></ul></div><p>Neither of the SIP soft-phones needs to be registered.</p></li><li class="step"><p>From the second softphone, <code class="literal">forward-sender</code>,
+make a call to <code class="literal">sip:receiver@sip-servlets.com</code>. The
+first phone, <code class="literal">forward-receiver</code>, should now be
+ringing.</p></li></ol></div><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h2>Note</h2><p><a class="xref" href="ch04.html" title="Chapter 4. SIP Servlet Example Applications">Chapter 4, <em>SIP Servlet Example Applications</em></a>
+provides more information about other service examples
+available.</p></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="mipbx-Media_IPBX"/>4.1.6. Media IPBX</h3></div></div></div><p>The Media IPBX provides an extensible and customizable SIP PBX solution, based on the Seam Telco Framework (STF).  While the PBX is currently provided as a capability demonstration, the ultimate goal is to transition Media IPBX into a fully-fledged SIP PBX solution.</p><p>Media IPBX terminates all calls to Mobicents Media Server conference endpoints, which provides flexibility in manipulating established calls including server-side conferencing and ring-back tones. The PBX can also be implemented as a Session Border Controller.</p><div xmlns:d="http://docbook.org/ns/docbook" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h2>Note</h2><p>Media IPBX is compatible with Mobicents SIP Servlets with JBoss AS 4.2.3. Versions prior to this release do not support Media IPBX.</p></div><p>Media IPBX provides the following major features:
+      </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>User authentication.</p></li><li class="listitem"><p>SIP phone registration.</p></li><li class="listitem"><p>System configuration.</p></li><li class="listitem"><p>Individual user views.</p></li><li class="listitem"><p>Call monitoring and management.</p></li><li class="listitem"><p>Multiple SIP phone instances per user.</p></li><li class="listitem"><p>Status-based SIP phone assignment for incoming calls.</p></li><li class="listitem"><p>Public Switched Telephone Network (PSTN) support, including administrative functions.</p></li><li class="listitem"><p>Support for SIP REGISTER requests to automatically add phones by matching the username, or username and hostname (in 'strict mode' only).</p></li><li class="listitem"><p>Optionally specify local or online sources for announcements and ringback tones.</p></li><li class="listitem"><p>Session Border Controller capability.</p></li><li class="listitem"><p>Full conferencing support, including:</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>Privacy functions, including mute and closed-calls.</p></li><li class="listitem"><p>Call status announcement.</p></li><li class="listitem"><p>Ringback tones when waiting for other participants to join the conference.</p></li><li class="listitem"><p>Joining incoming calls to a conference.</p></li><li class="listitem"><p>Parking calls and isolating a single speaker using dual-tone multi-frequency (DTMF) tones.  This feature is currently experimental.</p></li></ul></div></li></ul></div><p>
+    </p><p>Many of the features in Media IPBX are presented to the user as hints on the GUI portal pages. It is recommended that you install Media IPBX and experiment with the demonstration to gain an understanding of how the solution works.</p><p>For information about installing and running Media IPBX, including binary and source code locations, visit the <a class="ulink" href="http://www.mobicents.org/mss-ipbx.html">Media IPBX homepage</a>.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="concept-chapter-SS_click2call"/>4.1.7. Tomcat Servlet Click2call Windows Setup</h3></div></div></div><p>
+Mobicents SIP Servlets Server can be run on a JBoss Application Server or on the Tomcat Servlet Container. Here is how
+to install and configure both JBoss a Microsoft Windows based system.
+</p><p> 
+Tomcat Servlet running on Microsoft Windows
+The Mobicents Platform is based on Java, so you need to make sure you have both the Java Runtime Environment (JRE)
+and, or the Java Development Kit (JDK) installed on your Windows based system. </p><p>
+You can download the <a class="ulink" href="http://www.java.com/en/"> Java Runtime Environment here </a>. 
+
+</p><p>
+<li class="step">
+Do to the following to open the cmd window
+<pre class="screen"> menu &gt; Start &gt; Run &gt; CMD</pre>
+
+
+In the black CMD window type 'java -version' You should see something similar to the screenshot below 
+
+
+
+<div class="figure"><a id="d0e3560"/><p class="title"><strong>Figure 4.3. Testing if Java is installed and running</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="windows_cmd_test_java_running"/><img src="images/click2call_windows_cmd_test_java_running.png" align="middle" alt="Testing if Java is installed and running"/></div></div></div><br class="figure-break"/></li>
+</p><p>
+If you are a developer, you can get the <a class="ulink" href=""> Java Development Kit here </a>. 
+It is recommended that you install the latest version of JDK. You can opt for the JDK Java SE (Standard Edition) for test purposes. 
+Once you have downloaded JDK, you will see an executable like the one below in your download folder. 
+</p><p>
+<li class="step">
+Double-click the .exe file and follow the menu to complete your installation. <pre class="screen"> Jdk-(version)-windows-i586.exe </pre><div class="figure"><a id="d0e3578"/><p class="title"><strong>Figure 4.4. JDK executable file</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="jdk_download_executable"/><img src="images/click2call_jdk_download_executable.png" align="middle" alt="JDK executable file"/></div></div></div><br class="figure-break"/></li>
+</p><p>
+JAVA_Home enviroment variable. 
+In order for applications to interact with your Java installation, you need to specify the install location by setting the JAVA_HOME environment variable. 
+Start the 'cmd' without the quotes and press Enter
+</p><pre class="screen">
+Start &gt; Run &gt; cmd
+</pre><p>
+</p><p>
+In the CMD window, type </p><p>
+</p><pre class="screen">
+Set JAVA_HOME=C:\Java\jdk1.7.0_02
+</pre><p>
+</p><p>
+</p><div class="figure"><a id="d0e3598"/><p class="title"><strong>Figure 4.5. Set environment variable</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="set_env_variable_windows"/><img src="images/click2call_set_env_variable_windows.png" align="middle" alt="Set environment variable"/></div></div></div><p><br class="figure-break"/>
+</p><p>
+This will set the environment variable for your session. The <code class="literal"> C:\Java\jdk1.7.0_02 </code> is the root folder where your JDK files are installed. You can go to <a class="ulink" href="http://support.microsoft.com/kb/931715"> this Microsoft page </a> to see how set your environment variable and make it permanent.
+If you want to make sure the JDK environment variable is set, type </p><pre class="screen"> c:\&gt; Set </pre><p>
+</p><p>
+Installing Mobicents Tomcat on Windows. It is recommended that you install the latest Mobicents Sip Servlets. 
+You can download the <a class="ulink" href="https://code.google.com/p/sipservlets/wiki/Downloads"> Mobicents SIP Servlets for Tomcat here </a>
+Make sure you download the latest Tomcat and not the JBoss. 
+
+</p><div class="figure"><a id="d0e3621"/><p class="title"><strong>Figure 4.6. Download Mobicents SIP Servlets for Tomcat</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="install_mobicents_tomcat_windows"/><img src="images/click2call_install_mobicents_tomcat_windows.png" align="middle" alt="Download Mobicents SIP Servlets for Tomcat"/></div></div></div><p><br class="figure-break"/>
+
+The downloaded file will appear similar to this screenshot below
+
+</p><div class="figure"><a id="d0e3628"/><p class="title"><strong>Figure 4.7. Downloaded Tomcat File </strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="click2call_download_latest_version_tomcat"/><img src="images/click2call_download_latest_version_tomcat.png" align="middle" alt="Downloaded Tomcat File"/></div></div></div><p><br class="figure-break"/>
+
+The extracted file will look similar to this folder
+</p><div class="figure"><a id="d0e3635"/><p class="title"><strong>Figure 4.8. Content of Tomcat Directory</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="content_mss_tomcat_directory"/><img src="images/click2call_content_mss_tomcat_directory.png" align="middle" alt="Content of Tomcat Directory"/></div></div></div><p><br class="figure-break"/> 
+</p><p>
+
+Once you have extracted the content of the MSS Tomcat server zip file, you need to set the CATALINA_HOME environment variable. Open the 'cmd' window 
+</p><pre class="screen"> Start &gt; run &gt; cmd </pre><p>
+In this example, the environment variable is set as follows:
+</p><pre class="screen"> set CATALINA_HOME=C:\tomcat\3.0.564 </pre><p>
+
+Start the MSS Tomcat Server
+
+The \bin directory in the root of your Tomcat folder holds the executables you need to work with the MSS server application. 
+To start the server, you need to execute the startup.bat file. First, start the cmd window as follows:
+</p><pre class="screen">
+Start &gt; run &gt; cmd 
+</pre><p>
+
+
+
+</p><div class="figure"><a id="d0e3653"/><p class="title"><strong>Figure 4.9. Start Tomcat Server</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="starting_tomcat_server"/><img src="images/click2call_starting_tomcat_server.png" align="middle" alt="Start Tomcat Server"/></div></div></div><p><br class="figure-break"/>
+
+
+This will open another cmd.exe window similar to the one below
+
+
+</p><div class="figure"><a id="d0e3660"/><p class="title"><strong>Figure 4.10. Tomcat Server Started</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="mss_tomcat_server_started"/><img src="images/click2call_mss_tomcat_server_started.png" align="middle" alt="Tomcat Server Started"/></div></div></div><p><br class="figure-break"/>
+
+Note that the server is started and you can now begin to use the application.
+</p><p>
+
+
+Once the MSS Tomcat server is up and running, you should be able to go to http://localhost:8080/ 
+and see the web server in action. If the page doesn’t open or you get an error message saying page 
+is not found, the 8080 port might be in use by another service. You will have to change the port 
+in the server.xml file located in the c:\TOMCAT_ROOT_FOLDER\conf\server.xml. You will need a text editor like Notepad++ to change the connector. 
+Here is a screenshot of the server.xml file with the default port 8080.
+
+
+</p><div class="figure"><a id="d0e3669"/><p class="title"><strong>Figure 4.11. Tomcat Default Http Port</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="changing_tomcat_http_default_port"/><img src="images/click2call_changing_tomcat_http_default_port.png" align="middle" alt="Tomcat Default Http Port"/></div></div></div><p><br class="figure-break"/>
+
+
+The port number must be higher than 1024. In the example below, the port number for the connector has been change to 8040
+
+</p><div class="figure"><a id="d0e3676"/><p class="title"><strong>Figure 4.12. Change Default Http Port to 8040</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="updated_tomcat_http_port"/><img src="images/click2call_updated_tomcat_http_port.png" align="middle" alt="Change Default Http Port to 8040"/></div></div></div><p><br class="figure-break"/>
+
+</p><p>
+You can use your internet browser to see the result by going to <code class="literal"> http://localhost:8040 </code>
+You will see a page similar to the screenshot below
+
+</p><div class="figure"><a id="d0e3688"/><p class="title"><strong>Figure 4.13. Localhost Homepage</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="localhost_http_homepage"/><img src="images/click2call_localhost_http_homepage.png" align="middle" alt="Localhost Homepage"/></div></div></div><p><br class="figure-break"/>
+
+In order to manage the Click2call sip servlet clients, you need to navigate to the <code class="literal"> http://localhost:8040/click2call </code>
+If you get an error message that says, page cannot be displayed, you need to make sure the
+MSS Tomcat server is running by executing the startup.bat file in the <code class="literal"> MSS_Tomcat_root_folder\bin\startup.bat </code>
+Here is a screenshot of what the Click2call applet will look like without any registered soft phone clients
+
+
+</p><div class="figure"><a id="d0e3701"/><p class="title"><strong>Figure 4.14. Click2call Homepage</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="click2call_sip_servlets_sample_application"/><img src="images/click2call_sip_servlets_sample_application.png" align="middle" alt="Click2call Homepage"/></div></div></div><p><br class="figure-break"/> 
+
+</p><p>
+At the moment there are no registered users. That is because you need to get the softphone clients to register with the Tomcat server you started above.
+You need to install a minimum of two soft phones in order to be able to run the sip servlet Click2Call sample.
+In this example, we shall be using 2 soft phones clients, <span class="emphasis"><em> WengoPhone and 3CXPhone. </em></span>
+Download the latest version of the soft phones, install and configure them like the screenshots below:
+
+</p><div class="figure"><a id="d0e3713"/><p class="title"><strong>Figure 4.15. Wengo Softphone Configuration</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="wengo_softphone_configuration"/><img src="images/click2call_wengo_softphone_configuration.png" align="middle" alt="Wengo Softphone Configuration"/></div></div></div><p><br class="figure-break"/> 
+
+</p><p>
+You can use any username and password you desire. The MSS Tomcat server is listening for calls on the <span class="emphasis"><em> 127.0.0.1:5080 port </em></span>
+</p><p>
+<span class="emphasis"><em> Configuring the 3CXPhone </em></span> 
+After the installation is complete, you can start up the 3CXPhone, you will see the screen below prompting you to create a profile. Click on the Create Profile Button.
+
+</p><div class="figure"><a id="d0e3730"/><p class="title"><strong>Figure 4.16. 3CXphone Profile</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="3cxphone_softphone_profile"/><img src="images/click2call_3cxphone_softphone_profile.png" align="middle" alt="3CXphone Profile"/></div></div></div><p><br class="figure-break"/> 
+
+In the Accounts window choose the <span class="emphasis"><em> 'New' </em></span> button and configure as follows
+
+</p><div class="figure"><a id="d0e3740"/><p class="title"><strong>Figure 4.17. 3CXphone Softphone Configuration</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="3cxphone_softphone_configuration"/><img src="images/click2call_3cxphone_softphone_configuration.png" align="middle" alt="3CXphone Softphone Configuration"/></div></div></div><p><br class="figure-break"/> 
+</p><p>
+
+
+Once the 2 soft phone clients are configured with the SIP details, 
+you can go back to the <code class="literal"> http://localhost:8040/click2call/index.jsp page and you will see the clients registered with the server. </code>
+
+
+</p><div class="figure"><a id="d0e3752"/><p class="title"><strong>Figure 4.18. Registered Sip Clients</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="mobicents_sip_servlets_registered_clients"/><img src="images/click2call_mobicents_sip_servlets_registered_clients.png" align="middle" alt="Registered Sip Clients"/></div></div></div><p><br class="figure-break"/> 
+
+Before you can make calls, you will need to specify the contact details of the person you want to call. It is just like entering the phone number. 
+Because this is a SIP based setting, you will need to enter the SIP address instead of the phone number.
+
+
+
+</p><p>
+<span class="emphasis"><em> Testing the Soft Phones on Click2Call</em></span>
+In order to be able to make a call from one phone to the other, you need to create a contact user. 
+Because you will be using the SIP protocol, you will need to type the contact details with the testphone1 SIP pointing to the </p><pre class="screen"> testphone2@127.0.0.1 </pre><p>
+
+</p><div class="figure"><a id="d0e3767"/><p class="title"><strong>Figure 4.19. Wengo Phone Contact User Details</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="wengo_softphone_user_contact"/><img src="images/click2call_wengo_softphone_user_contact.png" align="middle" alt="Wengo Phone Contact User Details"/></div></div></div><p><br class="figure-break"/> 
+</p><p>
+You need to do the same on the 3CXPhone contact. The phone contact number will be </p><pre class="screen"> sip:testphone1@127.0.0.1:5080 </pre><p>
+</p><div class="figure"><a id="d0e3779"/><p class="title"><strong>Figure 4.20. 3CXPhone Contact User Details</strong></p><div class="figure-contents"><div class="mediaobject" align="center"><a id="3cxphone_contact_user_detail.png"/><img src="images/click2call_3cxphone_contact_user_detail.png" align="middle" alt="3CXPhone Contact User Details"/></div></div></div><p><br class="figure-break"/> 
+Once you have both contact sip details configured, you can start to make calls and fully use the Click2call application.
+
+</p></div></div></div><ul xmlns:d="http://docbook.org/ns/docbook" class="docnav"><li class="previous"><a accesskey="p" href="ch03.html"><strong>Prev</strong>Chapter 3. Application Router</a></li><li class="up"><a accesskey="u" href="#"><strong>Up</strong></a></li><li class="home"><a accesskey="h" href="index.html"><strong>Home</strong></a></li><li class="next"><a accesskey="n" href="ch05.html"><strong>Next</strong>Chapter 5. Clustering and High Availability</a></li></ul></body></html>
