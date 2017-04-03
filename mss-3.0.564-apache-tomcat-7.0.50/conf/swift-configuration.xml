@@ -9,7 +9,7 @@
 	</serverProperties>
 	<socketPath>wss://10.10.222.92:8443/SwiftGateway/wssignaling</socketPath>
 	<certificatePath>/opt/realcomm.p12</certificatePath>
-	<certificatePassword>span@123</certificatePassword>
+	<certificatePassword>evry@1234</certificatePassword>
 	<userProperties>
 		<!-- Maximum registration time for the user. User has to send register 
 			request again to extend the time. -->
