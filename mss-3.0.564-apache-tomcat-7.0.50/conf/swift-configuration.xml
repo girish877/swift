@@ -5,9 +5,9 @@
 	<serverProperties>
 		<sipServerAddress>10.10.222.92:5080</sipServerAddress>
 		<sipServerIP>10.10.222.92</sipServerIP>
-		<webSocketPort>8443</webSocketPort>
+		<webSocketPort>443</webSocketPort>
 	</serverProperties>
-	<socketPath>wss://10.10.222.92:8443/SwiftGateway/wssignaling</socketPath>
+	<socketPath>wss://10.10.222.92:443/SwiftGateway/wssignaling</socketPath>
 	<certificatePath>/opt/realcomm.p12</certificatePath>
 	<certificatePassword>evry@1234</certificatePassword>
 	<userProperties>
