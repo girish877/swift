@@ -61,7 +61,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="443" protocol="HTTP/1.1" redirectPort="443"/>
+    <Connector connectionTimeout="20000" port="443" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -80,7 +80,7 @@
                clientAuth="false" sslProtocol="TLS" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" />
     -->
 	
-	<Connector SSLEnabled="true" clientAuth="false" keystoreFile="/opt/realcomm.p12" keystorePass="evry@1234" keystoreType="PKCS12" maxThreads="150" port="443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" sslProtocol="TLS"/>
+	<Connector SSLEnabled="true" clientAuth="false" keystoreFile="/opt/realcomm.p12" keystorePass="evry@1234" keystoreType="PKCS12" maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" sslProtocol="TLS"/>
 	
 	
 	<!-- <Connector SSLEnabled="true" acceptCount="100" clientAuth="false" disableUploadTimeout="true" enableLookups="false" keystoreFile="D:\SM_W1\Certificates\device.crt"	keystorePass="evry@1234" maxThreads="25" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/> -->
@@ -99,7 +99,7 @@
            <!-- <Connector SSLCertificateFile="D:\SM_W1\Certificates\device.crt" SSLCertificateKeyFile="D:\SM_W1\Certificates\device.key" SSLEnabled="true" SSLProtocol="TLSv1" clientAuth="optional" keystorePass="evry@1234" maxThreads="200" port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol" scheme="https" secure="true"/> -->
 	
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="443"/>
+    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
 
     <!-- Define a SIP Connector on port 5080 -->
     <Connector ipAddress="0.0.0.0" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="udp"/>
