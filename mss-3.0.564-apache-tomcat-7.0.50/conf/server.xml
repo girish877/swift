@@ -102,10 +102,10 @@
     <Connector port="8009" protocol="AJP/1.3" redirectPort="443"/>
 
     <!-- Define a SIP Connector on port 5080 -->
-    <Connector ipAddress="0.0.0.0" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="udp"/>
+    <Connector ipAddress="0.0.0.0" port="5080" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="udp"/>
 	
 	<!-- Define the default TCP SIP Connector -->
-    <Connector ipAddress="0.0.0.0" port="5060" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tcp"/>
+    <Connector ipAddress="0.0.0.0" port="5080" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tcp"/>
     	 
     <!-- Define the default TLS SIP Connector -->
     <Connector ipAddress="0.0.0.0" port="5081" protocol="org.mobicents.servlet.sip.startup.SipProtocolHandler" signalingTransport="tls"/>
