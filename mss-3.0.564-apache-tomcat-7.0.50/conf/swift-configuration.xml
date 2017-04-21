@@ -3,11 +3,11 @@
 	folder -->
 <swift>
 	<serverProperties>
-		<sipServerAddress>10.10.222.92:5080</sipServerAddress>
-		<sipServerIP>10.10.222.92</sipServerIP>
+		<sipServerAddress>172.18.0.2:5080</sipServerAddress>
+		<sipServerIP>172.18.0.2</sipServerIP>
 		<webSocketPort>443</webSocketPort>
 	</serverProperties>
-	<socketPath>wss://10.10.222.92:443/SwiftGateway/wssignaling</socketPath>
+	<socketPath>wss://172.18.0.2:443/SwiftGateway/wssignaling</socketPath>
 	<certificatePath>/opt/realcomm.p12</certificatePath>
 	<certificatePassword>evry@1234</certificatePassword>
 	<userProperties>
